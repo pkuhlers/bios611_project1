@@ -9,7 +9,14 @@ The goal of this project is to identify what groups have been most affected and 
 
 Data from other sources may be included in the project, such as state level unemployment data to determine if different groups were affected in different regions. Additionally, modeling may be performed to determine if the intensity of the pandemic (deaths or cases) is related to the economic impact in a state.
 
+How To Use This Project
+-----------------------
 
+To run this project, you will need Docker:
+
+    > docker build . -t project1-env
+    > docker run -v `pwd`:/home/rstudio -p 8787:8787\
+     -e PASSWORD=<yourpassword> -t project1-env
 
 
 
