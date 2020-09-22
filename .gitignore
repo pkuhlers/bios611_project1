@@ -1,6 +1,12 @@
 .local/
 .rstudio/
 
+.RData
+.Rhistory
+.bash_history
+
+
+
 
 
 
