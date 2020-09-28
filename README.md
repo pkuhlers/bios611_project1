@@ -1,13 +1,11 @@
 Bios 611 Project 1
 ==================
-COVID19 Labor Statistics
-------------------------
+Alcoholic Beverage Consumption and Liver Disease
+------------------------------------------------
 
-The economic effects of COVID19 have disproportionately affected people with lower socioeconomic status and those who worked in industries affected by lockdowns.
+Excessive alcohol consumption can cause a myriad of health problems, one of which is liver disease. An interesting observation from lung cancer is that as the prevalence of smoking decreased, the prevalence of lung cancer slowly ticked down as well. This project will investigate whether a similar trend can be observed from alcohol consumption and alcoholic liver disease. This project will use state level data of liver disease deaths from the CDC and state level data of taxable barrels from the Alcohol and Tobacco Tax and Trade Bureau.
 
-The goal of this project is to identify what groups have been most affected and attempt to quantify the losses. This project will use data from the United States Bureau of Labor Statistics which contains detailed information on employment losses for various groups of the population.
-
-Data from other sources may be included in the project, such as state level unemployment data to determine if different groups were affected in different regions. Additionally, modeling may be performed to determine if the intensity of the pandemic (deaths or cases) is related to the economic impact in a state.
+The current version of the project will use taxable barrels as a proxy for overall consumption -- since likely brewers would not produce beer that is not meant to be consumed. Additionally, the first analysis will look at beer consumption, but wine and distilled spirits will be added.
 
 How To Use This Project
 -----------------------
@@ -17,35 +15,3 @@ To run this project, you will need Docker:
     > docker build . -t project1-env
     > docker run -v `pwd`:/home/rstudio -p 8787:8787\
      -e PASSWORD=<yourpassword> -t project1-env
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
