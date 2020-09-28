@@ -1,10 +1,21 @@
-install.packages("openxlsx")
 library(openxlsx)
-x1 <- read.xlsx("source_data/covid19-table1-2020-05.xlsx",startRow = 2) ## Teleworking by age & edu
-x2 <- read.xlsx("source_data/covid19-table10-2020-05.xlsx") ## Not in work force and not looking distribution
-x3 <- read.xlsx("source_data/covid19-table2-2020-05.xlsx") ## Teleworked by industry
-x4 <- read.xlsx("source_data/covid19-table4-2020-05.xlsx") ## Unable to work by age & edu
-x5 <- read.xlsx("source_data/covid19-table5-2020-05.xlsx")
-x6 <- read.xlsx("source_data/covid19-table6-2020-05.xlsx")
-x7 <- read.xlsx("source_data/covid19-table7-2020-05.xlsx") ## Unable to work by industry
-x8 <- read.xlsx("source_data/covid19-table9-2020-05.xlsx") ## Not in labor force & not looking totals
+library(tidyverse)
+
+beer <- read.xlsx(xlsxFile = "source_data/aggr-data-beer_2008-2019.xlsx",
+                  startRow = 7)
+beer$"2008" <- as.numeric(beer$"2008")
+
+beer %>%
+  rename_with(~ gsub(pattern = "[**]",
+                     replacement = "", 
+                     .x)) %>%
+  slice(n = -(52:57)) %>%
+  pivot_longer(cols = !STATE,
+               names_to = "year",
+               values_to = "barrels",
+               values_ptypes = list(year = numeric(),barrels=numeric())) -> beerTidy
+beerTidy$year <- as.numeric(beerTidy$year)
+
+beerTidy %>%
+  ggplot(aes(x = year, y = barrels, color = STATE)) + geom_line()
+         
