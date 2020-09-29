@@ -7,6 +7,12 @@ Excessive alcohol consumption can cause a myriad of health problems, one of whic
 
 The current version of the project will use taxable barrels as a proxy for overall consumption -- since likely brewers would not produce beer that is not meant to be consumed. Additionally, the first analysis will look at beer consumption, but wine and distilled spirits will be added.
 
+Preliminary analysis shows that the amount of beer produced for consumption remained relatively constant but in recent years has seen a dramatic increase (the Alcohol and Tobacco Tax and Trade Bureau says this is because of an increase in small breweries).
+
+![Beer Production](assets/barrels_by_state.png)
+
+
+
 How To Use This Project
 -----------------------
 
