@@ -4,6 +4,8 @@
 .RData
 .Rhistory
 .bash_history
+.config/
 
 figures/
+derived_data/*
 
