@@ -1,5 +1,5 @@
 
-report.pdf:\
+figures/report.pdf:\
  report.Rmd\
  assets/barrels_by_state.png\
  assets/crude_rate_by_state.png\
