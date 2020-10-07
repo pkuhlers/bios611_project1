@@ -11,7 +11,9 @@ Preliminary analysis shows that the amount of beer produced for consumption rema
 
 ![Beer Production](assets/barrels_by_state.png)
 
+Data from the CDC shows that there has been a steady increase in the crude rate of alcoholic liver disease over the past few years, which may be related to the recent increase in alcohol consumption.
 
+![Liver Mortality](assets/crude_rate_by_state.png)
 
 How To Use This Project
 -----------------------
