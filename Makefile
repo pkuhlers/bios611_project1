@@ -3,7 +3,8 @@ report.pdf:\
  report.Rmd\
  assets/barrels_by_state.png\
  assets/crude_rate_by_state.png\
- figures/avPlots.png
+ figures/avPlots.png\
+ derived_data/lm_barrel_year.rds
 	Rscript -e "rmarkdown::render('report.Rmd',output_format='pdf_document')"
 
 assets/barrels_by_state.png:\
@@ -12,6 +13,10 @@ assets/barrels_by_state.png:\
  clean.R
 	Rscript analysis.R
 
+derived_data/lm_barrel_year.rds:\
+ derived_data/combined_beer_liver.csv\
+ analysis.R
+	Rscript analysis.R
 derived_data/tidy_beer_consump.csv:\
  source_data/aggr-data-beer_2008-2019.xlsx\
  clean.R
