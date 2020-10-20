@@ -1,5 +1,5 @@
 
-figures/report.pdf:\
+report.pdf:\
  report.Rmd\
  assets/barrels_by_state.png\
  assets/crude_rate_by_state.png\
@@ -32,3 +32,8 @@ figures/avPlots.png:\
  derived_data/combined_beer_liver.csv\
  analysis.R
 	Rscript analysis.R
+	
+figures/aggr-data-beer_2008-2019.png:\
+ derived_data/combined_beer_liver.csv\
+ aggregated_analysis.R
+	Rscript aggregated_analysis.R
