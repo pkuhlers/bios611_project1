@@ -23,3 +23,9 @@ To run this project, you will need Docker:
     > docker build . -t project1-env
     > docker run -v `pwd`:/home/rstudio -p 8787:8787\
      -e PASSWORD=<yourpassword> -t project1-env
+
+Then connect to port 8787.
+
+The Makefile is a good place to understand the dependencies of the project. To make the entire report, run the following line within the Rstudio terminal:
+
+    > make report.pdf
