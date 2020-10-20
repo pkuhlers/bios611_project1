@@ -4,6 +4,7 @@ report.pdf:\
  assets/barrels_by_state.png\
  assets/crude_rate_by_state.png\
  figures/avPlots.png\
+ figures/aggregated_mortality_barrels.png\
  derived_data/lm_barrel_year.rds
 	Rscript -e "rmarkdown::render('report.Rmd',output_format='pdf_document')"
 
