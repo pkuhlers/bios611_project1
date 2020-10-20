@@ -14,9 +14,8 @@ beerTidy %>%
                      breaks = seq(2008,2019,2),
                      limits = c(2008,2019)) +
   labs(y= "Barrels",
-       title = "Barrels of Beer Produced from 2008 - 2009")
+       title = "Barrels of Beer Produced from 2008 - 2019")
 dev.off()
-
 ## Crude death rate by state
 liverTidy <- read.csv("derived_data/tidy_liver_mortality.csv")
 
@@ -27,7 +26,10 @@ liverTidy %>%
   coord_cartesian(xlim = c(2008,2015)) + 
   scale_x_continuous(name = "Year", 
                      breaks = seq(2008,2015,2),
-                     limits = c(2008,2015))
+                     limits = c(2008,2015)) +
+  labs(x = "Year",
+       y = "Crude Rate", 
+       title = "Crude Alcoholic Liver Disease Mortality by Year")
 dev.off()
 
 comb_data <- read.csv("derived_data/combined_beer_liver.csv")
@@ -38,6 +40,7 @@ dev.off()
 
 model1 <- lm(crude.rate ~ barrels + year, data = comb_data)
 summary(model1)
+saveRDS(model1, file = "derived_data/lm_barrel_year.rds")
 
 png(filename = "figures/avPlots.png")
 avPlots(model1)

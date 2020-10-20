@@ -1,11 +1,44 @@
 ---
 title: "Project 1 Report"
 author: "Peyton Kuhlers"
-date: "10/7/2020"
+date: "10/19/20"
 output: pdf_document
 ---
+Introduction
+============
+According to the National Institute of Alcoholism and Alcohol Abuse, of the approximately 83,000 liver disease deaths in 2018, 40,000 of them were due to alcohol. According to data from the Alcohol and Tobacco Tax and Trade Bureau, there has been a significant increase in the amount of beer produced for consumption in the US (Fig. 1). It is clear to see that most states have seen an uptick in beer production, with California showing the largest increase. We would like to investigate whether this increase in beer production is correlated with an increase in alcoholic liver disease mortality.
 
 ![](assets/barrels_by_state.png)
+**Figure 1**. Barrels of beer produced for consumption between 2008 and 2019, separated by state.  
+
+Data from the CDC seems to show that the crude rate (deaths / population) of alcoholic liver disease mortality does seem to be trending upwards (Fig. 2). The increase is much more prominent in some states compared to others.  
+\newpage
+
 ![](assets/crude_rate_by_state.png)
+**Figure 2**. Plot of the crude alcoholic liver disease mortality rate from 2008 to 2015, separated by state.  
+
+\newpage
+
+Analysis
+========
+To study the association between the increase in both beer production and alcoholic liver mortality a simple linear model of crude rate versus barrels produced and year was constructed. While the regression coefficients were all highly significant, the actual percentage of variation in crude rate that was explained by the model was only 9%. Additionally, the added variable plots show that the linear relationship is extremely weak (Fig. 3).
+
+```{r, echo = F}
+mod1 <- readRDS("derived_data/lm_barrel_year.rds")
+summary(mod1)
+```
 ![](figures/avPlots.png)
+**Figure 3**. Model characteristics and added variable plots for a linear regression of crude rate versus barrels of beer and year.  
+
+
+It is clear that the linear relationship between the crude rate and beer production is quite weak. Up to this point, all data was separated by state. So to investigate whether there was a relationship at a national scale, all the data was aggregated by year. Then a loess regression was fit to take into account the non-linearity. Up until about 2014, there was a relatively linear increase in the national crude alcoholic liver disease rate and national beer production (Fig. 4). In 2015, beer production exploded (potentially due to changes in brewery laws) that was also accompanied by an increase in alcoholic liver mortality, just not as large. 
 ![](figures/aggregated_mortality_barrels.png)
+**Figure 4**. Aggregated beer production in tens of thousands and crude alcoholic liver mortality per million, fit using loess regression.
+
+Discussion
+==========
+These data give evidence that there is an association between the amount of beer produced for consumption and the crude rate of alcoholic liver disease mortality at the national level. However, this analysis is limited by a few factors. First, this analysis used barrels of beer produced as a surrogate for overall beer production. While it's unlikely brewers would make beer that is not meant to be drunk, it is not a direct measurement of consumption. Second, a more complete analysis would include all alcohol consumed (i.e. wine and spirits) and not just beer. Including consumption of other alcoholic beverages could help elucidate what kind of beverage may be worse for the population overall, plus, it would explain more variance in crude rate. Lastly, the explosion in beer production between 2014 and 2015 dramatically hampered the linear regression. Because 2015 is such an outlier it is hard to determine an appropriate model for the data (whether it is linear, exponential, etc). One way to solve this would be to increase the resolution of the data by looking at month-by-month production and mortality. Unfortunately, the CDC only maintains yearly mortality data, so we must live with the lower resolution.
+
+
+
+
