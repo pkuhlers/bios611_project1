@@ -33,7 +33,7 @@ figures/avPlots.png:\
  analysis.R
 	Rscript analysis.R
 	
-figures/aggr-data-beer_2008-2019.png:\
+figures/aggregated_mortality_barrels.png:\
  derived_data/combined_beer_liver.csv\
  aggregated_analysis.R
 	Rscript aggregated_analysis.R
