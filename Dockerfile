@@ -7,3 +7,7 @@ RUN R -e "install.packages('ggrepel', dependencies=TRUE, repos='http://cran.rstu
 RUN R -e "install.packages('car', dependencies=TRUE, repos='http://cran.rstudio.com/')"
 RUN R -e "install.packages('gbm', dependencies=TRUE, repos='http://cran.rstudio.com/')"
 RUN R -e "install.packages('MLmetrics', dependencies=TRUE, repos='http://cran.rstudio.com/')"
+RUN apt update -y && apt install -y python3-pip
+RUN pip3 install jupyter jupyterlab
+RUN pip3 install numpy pandas sklearn plotnine matplotlib pandasql bokeh
+

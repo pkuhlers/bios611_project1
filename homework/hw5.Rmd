@@ -1,0 +1,56 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+Question 1
+==========
+```{r, echo = F}
+suppressMessages(library(gbm))
+suppressMessages(library(tidyverse))
+suppressMessages(library(MLmetrics))
+
+dat <- read.csv("homework/datasets_weight-height.csv")
+dat$Gender_num <- ifelse(dat$Gender == "Male", 0, 1)
+
+ggplot(data = dat, aes(x = Height, fill = Gender)) +
+  geom_density(alpha = 0.6)
+ggplot(data = dat, aes(x = Weight, fill = Gender)) +
+  geom_density(alpha = 0.6)
+```
+
+
+```{r}
+mod <- gbm(formula = Gender_num ~ Height + Weight,
+            distribution = "bernoulli",
+            data = dat)
+summary(mod)
+preds2 <- predict(object = mod,
+                  newdata = test,
+                  type = "response")
+sum((preds2 > 0.5) == test$Gender_num) / nrow(test)
+```
+
+
+```{r}
+dat2 <- read.csv("homework/datasets_charcters_stats.csv")
+
+all(dat2[3,9] >= 0)
+
+pca <- dat2 %>%
+  distinct(Name, .keep_all = T) %>%
+  column_to_rownames(var = "Name") %>%
+  select(c(-Alignment,-Total)) %>%
+  prcomp(.)
+
+```
+
+
+
+
+
+
+
+
+
+
