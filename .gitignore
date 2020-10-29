@@ -6,6 +6,9 @@
 .bash_history
 .config/
 
+.ipy*
+.jupyter
+
 figures/
 derived_data/*
 
