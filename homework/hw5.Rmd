@@ -31,24 +31,39 @@ preds2 <- predict(object = mod,
 sum((preds2 > 0.5) == test$Gender_num) / nrow(test)
 ```
 
-
+Question 3
+==========
+There appears to be a duplication in the dataset.
 ```{r}
-dat2 <- read.csv("homework/datasets_charcters_stats.csv")
+dat2 <- read.csv("datasets_charcters_stats.csv")
+any(duplicated(dat2$Name))
+```
 
-all(dat2[3,9] >= 0)
 
+Here we will filter the duplication and run pca
+```{r}
 pca <- dat2 %>%
   distinct(Name, .keep_all = T) %>%
   column_to_rownames(var = "Name") %>%
   select(c(-Alignment,-Total)) %>%
   prcomp(.)
-
 ```
 
 
+Question 3
+==========
+We will now plot the TSNE data from sklearn.
+```{r}
+tsne <- read.csv("tsneOut.csv")
+align <- data.frame(alignment = dat2$Alignment, 
+                    TSNE1 = tsne$TSNE1,
+                    TSNE2 = tsne$TSNE2)
 
-
-
+ggplot(data = align, aes(x = TSNE1, y = TSNE2, col = alignment)) + 
+  geom_point()
+```
+And here is the plot done in python:
+![]("plotnine-alignment-tsne.png")
 
 
 
