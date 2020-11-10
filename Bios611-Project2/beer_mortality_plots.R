@@ -9,16 +9,17 @@
 
 library(shiny)
 library(tidyverse)
+library(plotly)
 # Define UI for application that draws a histogram
 ui <- fluidPage(
 
     # Application title
     titlePanel("Beer Consumption in the United States"),
     
-    selectInput("state", "State",
+    selectInput(inputId = "state", label = "State",
                 state.abb
     ),
-    plotOutput("beerPlot")
+    plotOutput(outputId = "beerPlot")
 )
 
 
@@ -30,11 +31,14 @@ server <- function(input, output) {
         x <- read.csv("derived_data/combined_beer_liver.csv")
         x %>% 
             filter(state == input$state) %>%
-            ggplot(aes(x = year, y = barrels)) + 
-            geom_smooth(se = F)
+            ggplot(aes(x = year, y = barrels)) +
+            geom_smooth(se = F) +
+            ggtitle(paste(input$state, "Beer Consumption")) +
+            theme(plot.title = element_text(hjust = 0.5,size = 24))
+        
             
     })
 }
 
 # Run the application 
-shinyApp(ui = ui, server = server)
+shinyApp(ui = ui, server = server,options = list(port=8788, host="0.0.0.0"))
