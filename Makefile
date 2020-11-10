@@ -1,5 +1,8 @@
 .PHONY: beer_mortality_shiny
 
+beer_mortality_shiny: derived_data/combined_beer_liver.csv
+	Rscript Bios611-Project2/beer_mortality_plots.R
+
 report.pdf:\
  report.Rmd\
  assets/barrels_by_state.png\
@@ -46,5 +49,3 @@ figures/aggregated_mortality_barrels.png:\
  aggregated_analysis.R
 	Rscript aggregated_analysis.R
 
-beer_mortality_shiny: ~/derived_data/combined_beer_liver.csv
-	Rscript Bios611-Project2/beer_mortality_plots.R
