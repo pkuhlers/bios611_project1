@@ -1,5 +1,12 @@
 Bios 611 Project 1
 ==================
+- [Introduction](#introduction)  
+- [Usage](#how-to-use-this-project)  
+  * [Report](#report)
+  * [Shiny Dashboard](#shiny-dashboard)
+
+Introduction
+============
 Alcoholic Beverage Consumption and Liver Disease
 ------------------------------------------------
 
@@ -16,7 +23,7 @@ Data from the CDC shows that there has been a steady increase in the crude rate 
 ![Liver Mortality](assets/crude_rate_by_state.png)
 
 How To Use This Project
------------------------
+=======================
 
 To run this project, you will need Docker:
 
@@ -26,6 +33,22 @@ To run this project, you will need Docker:
 
 Then connect to port 8787.
 
+Report
+------
 The Makefile is a good place to understand the dependencies of the project. To make the entire report, run the following line within the Rstudio terminal:
 
     > make report.pdf
+    
+Shiny Dashboard
+---------------
+In order to build the shiny dashboard run the following:
+
+    > docker run -v `pwd`:/home/rstudio -p 8787:8787 -p 8788:8788 -e PASSWORD=<yourpassword> -t project1-env
+
+Connect to port 8787. Then within the rstudio terminal, run:
+
+    > make beer_mortality_shiny
+
+Then connect to port 8788.
+    
+
