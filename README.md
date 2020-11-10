@@ -28,7 +28,7 @@ How To Use This Project
 To run this project, you will need Docker:
 
     > docker build . -t project1-env
-    > docker run -v `pwd`:/home/rstudio -p 8787:8787\
+    > docker run -v `pwd`:/home/rstudio -p 8787:8787 -p 8788:8788\
      -e PASSWORD=<yourpassword> -t project1-env
 
 Then connect to port 8787.
@@ -41,11 +41,7 @@ The Makefile is a good place to understand the dependencies of the project. To m
     
 Shiny Dashboard
 ---------------
-In order to build the shiny dashboard run the following:
-
-    > docker run -v `pwd`:/home/rstudio -p 8787:8787 -p 8788:8788 -e PASSWORD=<yourpassword> -t project1-env
-
-Connect to port 8787. Then within the rstudio terminal, run:
+To start the shiny dashboard, make sure you are connected to port 8787. Then within the rstudio terminal, run:
 
     > make beer_mortality_shiny
 
