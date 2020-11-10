@@ -1,3 +1,4 @@
+.PHONY: beer_mortality_shiny
 
 report.pdf:\
  report.Rmd\
@@ -18,6 +19,7 @@ derived_data/lm_barrel_year.rds:\
  derived_data/combined_beer_liver.csv\
  analysis.R
 	Rscript analysis.R
+	
 derived_data/tidy_beer_consump.csv:\
  source_data/aggr-data-beer_2008-2019.xlsx\
  clean.R
@@ -43,3 +45,6 @@ figures/aggregated_mortality_barrels.png:\
  derived_data/combined_beer_liver.csv\
  aggregated_analysis.R
 	Rscript aggregated_analysis.R
+
+beer_mortality_shiny: ~/derived_data/combined_beer_liver.csv
+	Rscript Bios611-Project2/beer_mortality_plots.R
