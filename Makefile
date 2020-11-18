@@ -38,10 +38,12 @@ derived_data/combined_allBeer_liver.csv:\
 
 assets/allBarrels_by_state.png:\
  derived_data/tidy_allBeer_consump.csv\
- ~/Project3_scripts/aggregated_analysis_allBeer.R
-		Rscript ~/Project3_scripts/aggregated_analysis_allBeer.R
+ ~/Project3_scripts/analysis_allBeer.R
+		Rscript ~/Project3_scripts/analysis_allBeer.R
 
 derived_data/tidy_allBeer_consump.csv:\
+ derived_data/tidy_liver_mortality.csv\
+ ~/Project1_scripts/clean.R\
  ~/Project3_scripts/clean_all.R
 		Rscript ~/Project3_scripts/clean_all.R
 
@@ -100,5 +102,5 @@ figures/aggregated_mortality_barrels.png:\
 
 derived_data/tidy_liver_mortality.csv:\
  Project1_scripts/clean.R
-	Rscript ~/Project_1_scripts/clean.R
+	Rscript ~/Project1_scripts/clean.R
  
