@@ -4,6 +4,7 @@ Bios 611 Project 1
 - [Usage](#how-to-use-this-project)  
   * [Report](#report)
   * [Shiny Dashboard](#shiny-dashboard)
+  * [Python Addition](#python-project-addition)
 
 Introduction
 ============
@@ -31,7 +32,7 @@ To run this project, you will need Docker:
     > docker run -v `pwd`:/home/rstudio -p 8787:8787 -p 8788:8788\
      -e PASSWORD=<yourpassword> -t project1-env
 
-Then connect to port 8787.
+Then connect to port 8787 (the username is rstudio and the password is your chosen password).
 
 Report
 ------
@@ -47,4 +48,17 @@ To start the shiny dashboard, make sure you are connected to port 8787. Then wit
 
 Then connect to port 8788.
     
+Python Project Addition
+-----------------------
+To explore the python analysis in a jupyter notebook run the following:
+
+    > docker run -p 8765:8765 -v `pwd`:/home/rstudio -e PASSWORD=<yourpassword> -it project1-env sudo -H -u rstudio /bin/bash -c\
+     "cd ~/;\jupyter lab --ip 0.0.0.0 --port 8765"
+
+You will receive a token like this: http://127.0.0.1:8765/?token=XXX
+Use this to connect to port 8765 (make sure to change the IP to your own!).
+
+If you would like to review the final report, open a terminal in jupyter and  run:
+
+    > make python-report.pdf
 

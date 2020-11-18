@@ -17,3 +17,6 @@ report.pdf
 .cache
 
 homework/runJL.sh
+.python_history
+Rplots.pdf
+python-report.pdf
