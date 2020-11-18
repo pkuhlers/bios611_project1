@@ -98,3 +98,7 @@ figures/aggregated_mortality_barrels.png:\
  Project1_scripts/aggregated_analysis.R
 	Rscript ~/Project1_scripts/aggregated_analysis.R
 
+derived_data/tidy_liver_mortality.csv:\
+ Project1_scripts/clean.R
+	Rscript ~/Project_1_scripts/clean.R
+ 
