@@ -8,13 +8,13 @@ Introduction
 ============
 According to the National Institute of Alcoholism and Alcohol Abuse, of the approximately 83,000 liver disease deaths in 2018, 40,000 of them were due to alcohol. According to data from the Alcohol and Tobacco Tax and Trade Bureau, there has been a significant increase in the amount of beer produced for consumption in the US (Fig. 1). It is clear to see that most states have seen an uptick in beer production, with California showing the largest increase. We would like to investigate whether this increase in beer production is correlated with an increase in alcoholic liver disease mortality.
 
-![](assets/barrels_by_state.png)
+![](~/assets/barrels_by_state.png)
 **Figure 1**. Barrels of beer produced for consumption between 2008 and 2019, separated by state.  
 
 Data from the CDC seems to show that the crude rate (deaths / population) of alcoholic liver disease mortality does seem to be trending upwards (Fig. 2). The increase is much more prominent in some states compared to others.  
 \newpage
 
-![](assets/crude_rate_by_state.png)
+![](~/assets/crude_rate_by_state.png)
 **Figure 2**. Plot of the crude alcoholic liver disease mortality rate from 2008 to 2015, separated by state.  
 
 \newpage
@@ -24,15 +24,15 @@ Analysis
 To study the association between the increase in both beer production and alcoholic liver mortality a simple linear model of crude rate versus barrels produced and year was constructed. While the regression coefficients were all highly significant, the actual percentage of variation in crude rate that was explained by the model was only 9%. Additionally, the added variable plots show that the linear relationship is extremely weak (Fig. 3).
 
 ```{r, echo = F}
-mod1 <- readRDS("derived_data/lm_barrel_year.rds")
+mod1 <- readRDS("~/derived_data/lm_barrel_year.rds")
 summary(mod1)
 ```
-![](figures/avPlots.png)
+![](~/figures/avPlots.png)
 **Figure 3**. Model characteristics and added variable plots for a linear regression of crude rate versus barrels of beer and year.  
 
 
 It is clear that the linear relationship between the crude rate and beer production is quite weak. Up to this point, all data was separated by state. So to investigate whether there was a relationship at a national scale, all the data was aggregated by year. Then a loess regression was fit to take into account the non-linearity. Up until about 2014, there was a relatively linear increase in the national crude alcoholic liver disease rate and national beer production (Fig. 4). In 2015, beer production exploded (potentially due to changes in brewery laws) that was also accompanied by an increase in alcoholic liver mortality, just not as large. 
-![](figures/aggregated_mortality_barrels.png)
+![](~/figures/aggregated_mortality_barrels.png)
 **Figure 4**. Aggregated beer production in tens of thousands and crude alcoholic liver mortality per million, fit using loess regression.
 
 Discussion

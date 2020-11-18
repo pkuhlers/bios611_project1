@@ -1,7 +1,8 @@
 library(openxlsx)
 library(tidyverse)
 #library(plotly)
-
+## Cleans the beer dataset (premise use only!!)
+## Cleans the liver mortality data and joins with on-premise beer data
 beer <- read.xlsx(xlsxFile = "source_data/aggr-data-beer_2008-2019.xlsx",
                   startRow = 7)
 beer$"2008" <- as.numeric(beer$"2008")
@@ -19,6 +20,7 @@ beerTidy$year <- as.numeric(beerTidy$year)
 names(beerTidy) <- tolower(names(beerTidy))
 
 write.csv(beerTidy,"derived_data/tidy_beer_consump.csv")
+
 ## Liver disease
 liver <- read.table("source_data/mortality.txt",
                     header = T,

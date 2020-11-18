@@ -1,0 +1,40 @@
+---
+title: "Project 3 Report"
+author: "Peyton Kuhlers"
+date: "11/17/2020"
+output: pdf_document
+---
+
+Introduction
+============
+According to the National Institute of Alcoholism and Alcohol Abuse, of the approximately 83,000 liver disease deaths in 2018, 40,000 of them were due to alcohol. My previous analysis using data from the Alcohol Tobacco Tax and Trade Bureau (TTB) showed that across the US beer production was increasing. However, this data set only included beer for **On-Premise Use**, that is beer meant to be consumed at a brewery. Interestingly, on-premise production has increased (per last report), however, upon combining total beer production (which includes beer in bottles, cans, kegs, and barrels), there has been a clear **decrease** in beer production in most states (Fig. 1). This realization actually switches the initial positive association found previously.
+
+![](~/assets/allBarrels_by_state.png)
+**Figure 1**. Barrels of beer produced for consumption between 2008 and 2019, separated by state.  
+
+\newpage
+Data from the CDC seems to show that the crude rate (deaths / population) of alcoholic liver disease mortality does seem to be trending upwards (Fig. 2). The increase is much more prominent in some states compared to others.  
+
+![](~/assets/crude_rate_by_state.png)
+**Figure 2**. Plot of the crude alcoholic liver disease mortality rate from 2008 to 2015, separated by state.  
+
+\newpage
+
+Analysis
+========
+To study the association between the increase in both beer production and alcoholic liver mortality, state data were aggregated and a simple linear model of crude rate versus barrels produced and year was constructed. 
+
+![](~/figures/allBeer_crudeRate_lm_p9.png)  
+
+**Figure 3**. Aggregated beer production in tens of thousands and crude alcoholic liver mortality per million, fit using least squares regression.
+
+Interestingly, there is a strong negative association between between the liver disease mortality and overall beer consumption.
+
+
+Discussion
+==========
+These data now flip the original association found in the previous report. The addition of beer produced for bottles and kegs along with on-premise consumption show there actually has been a decline in the amount of beer produced. Fig. 3 seems to suggest that beer consumption might actually be unrelated to overall beer consumption, since beer consumption declined from 2008-2015, but the crude liver disease mortality went up.
+
+
+
+
