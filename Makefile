@@ -5,7 +5,7 @@ python-report.pdf:\
  ~/Project3_scripts/python-report.Rmd\
  ~/assets/allBarrels_by_state.png\
  ~/assets/crude_rate_by_state.png\
- ~/figures/aggregated_mortality_barrels.png\
+ figures/aggregated_mortality_barrels.png\
  ~/figures/allBeer_crudeRate_lm_p9.png
 	Rscript -e "rmarkdown::render('~/Project3_scripts/python-report.Rmd',\
     output_format='pdf_document',\
